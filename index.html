@@ -1,0 +1,403 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Store.ar - Tecnología Original</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <style>
+        /* Reset and base styles */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        body {
+            font-family: 'Roboto', sans-serif;
+            background-color: #121212;
+            color: #ffffff;
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+        a {
+            text-decoration: none;
+            color: inherit;
+        }
+        button {
+            cursor: pointer;
+            border: none;
+            outline: none;
+        }
+
+        /* Hero Section */
+        .hero {
+            background: linear-gradient(135deg, #121212 0%, #1a1a1a 100%);
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            padding: 20px;
+            position: relative;
+        }
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: url('https://via.placeholder.com/1920x1080/007bff/ffffff?text=Tech+Background') no-repeat center center/cover;
+            opacity: 0.1;
+            z-index: -1;
+        }
+        .hero-content h1 {
+            font-size: 3rem;
+            font-weight: 700;
+            margin-bottom: 20px;
+            color: #ffffff;
+            text-shadow: 0 0 10px rgba(0, 123, 255, 0.5);
+        }
+        .hero-content p {
+            font-size: 1.2rem;
+            margin-bottom: 30px;
+            color: #cccccc;
+        }
+        .cta-buttons {
+            display: flex;
+            gap: 20px;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+        .btn {
+            padding: 15px 30px;
+            font-size: 1rem;
+            font-weight: 500;
+            border-radius: 50px;
+            transition: all 0.3s ease;
+        }
+        .btn-primary {
+            background: linear-gradient(45deg, #007bff, #0056b3);
+            color: #ffffff;
+        }
+        .btn-primary:hover {
+            background: linear-gradient(45deg, #0056b3, #004085);
+            transform: translateY(-2px);
+        }
+        .btn-secondary {
+            background: linear-gradient(45deg, #ff6b35, #e55a2b);
+            color: #ffffff;
+        }
+        .btn-secondary:hover {
+            background: linear-gradient(45deg, #e55a2b, #cc4a1f);
+            transform: translateY(-2px);
+        }
+
+        /* Products Section */
+        .products {
+            padding: 60px 20px;
+            background-color: #1a1a1a;
+        }
+        .section-title {
+            text-align: center;
+            font-size: 2.5rem;
+            margin-bottom: 40px;
+            color: #ffffff;
+        }
+        .products-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+        .product-card {
+            background: #2a2a2a;
+            border-radius: 15px;
+            overflow: hidden;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+            transition: transform 0.3s ease;
+        }
+        .product-card:hover {
+            transform: translateY(-10px);
+        }
+        .product-image {
+            width: 100%;
+            height: 200px;
+            background: #333;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #cccccc;
+            font-size: 1.5rem;
+        }
+        .product-info {
+            padding: 20px;
+        }
+        .product-name {
+            font-size: 1.5rem;
+            font-weight: 500;
+            margin-bottom: 10px;
+        }
+        .product-desc {
+            color: #cccccc;
+            margin-bottom: 15px;
+        }
+        .product-price {
+            font-size: 1.2rem;
+            font-weight: 700;
+            color: #ff6b35;
+        }
+
+        /* Why Choose Us Section */
+        .why-choose {
+            padding: 60px 20px;
+            background-color: #121212;
+        }
+        .features-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 30px;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+        .feature {
+            text-align: center;
+            padding: 30px;
+            background: #2a2a2a;
+            border-radius: 15px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+        }
+        .feature-icon {
+            font-size: 3rem;
+            color: #007bff;
+            margin-bottom: 20px;
+        }
+        .feature h3 {
+            font-size: 1.5rem;
+            margin-bottom: 10px;
+        }
+        .feature p {
+            color: #cccccc;
+        }
+
+        /* Contact Section */
+        .contact {
+            padding: 60px 20px;
+            background-color: #1a1a1a;
+        }
+        .contact-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            text-align: center;
+        }
+        .contact h2 {
+            font-size: 2.5rem;
+            margin-bottom: 40px;
+        }
+        .contact-links {
+            display: flex;
+            justify-content: center;
+            gap: 30px;
+            flex-wrap: wrap;
+        }
+        .contact-link {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            padding: 15px 30px;
+            background: #2a2a2a;
+            border-radius: 10px;
+            transition: background 0.3s ease;
+        }
+        .contact-link:hover {
+            background: #3a3a3a;
+        }
+        .contact-link i {
+            font-size: 1.5rem;
+            color: #007bff;
+        }
+
+        /* Footer */
+        .footer {
+            background-color: #0a0a0a;
+            padding: 40px 20px;
+            text-align: center;
+        }
+        .footer-content {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+        .footer-brand {
+            font-size: 2rem;
+            font-weight: 700;
+            margin-bottom: 20px;
+            color: #ffffff;
+        }
+        .social-links {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+        }
+        .social-link {
+            font-size: 2rem;
+            color: #cccccc;
+            transition: color 0.3s ease;
+        }
+        .social-link:hover {
+            color: #007bff;
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .hero-content h1 {
+                font-size: 2rem;
+            }
+            .cta-buttons {
+                flex-direction: column;
+                align-items: center;
+            }
+            .products-grid {
+                grid-template-columns: 1fr;
+            }
+            .features-grid {
+                grid-template-columns: 1fr;
+            }
+            .contact-links {
+                flex-direction: column;
+                align-items: center;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="hero-content">
+            <h1>Tecnología original, sonido que se siente</h1>
+            <p>Descubre los mejores productos tech en Store.ar, tu tienda en Cipolletti.</p>
+            <div class="cta-buttons">
+                <button class="btn btn-primary" onclick="scrollToSection('products')">Ver productos</button>
+                <a href="https://wa.me/5491234567890?text=Hola,%20quiero%20comprar%20productos%20de%20Store.ar" target="_blank">
+                    <button class="btn btn-secondary">Comprar por WhatsApp</button>
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Products Section -->
+    <section id="products" class="products">
+        <h2 class="section-title">Nuestros Productos</h2>
+        <div class="products-grid">
+            <div class="product-card">
+                <div class="product-image">Imagen JBL Speaker</div>
+                <div class="product-info">
+                    <h3 class="product-name">JBL GO 3 Bluetooth Speaker</h3>
+                    <p class="product-desc">Altavoz portátil resistente al agua con sonido potente.</p>
+                    <p class="product-price">$25.000</p>
+                </div>
+            </div>
+            <div class="product-card">
+                <div class="product-image">Imagen AirPods</div>
+                <div class="product-info">
+                    <h3 class="product-name">AirPods Pro</h3>
+                    <p class="product-desc">Auriculares inalámbricos con cancelación de ruido.</p>
+                    <p class="product-price">$45.000</p>
+                </div>
+            </div>
+            <div class="product-card">
+                <div class="product-image">Imagen Headphones</div>
+                <div class="product-info">
+                    <h3 class="product-name">Sony WH-1000XM4 Headphones</h3>
+                    <p class="product-desc">Auriculares con cancelación de ruido líder en la industria.</p>
+                    <p class="product-price">$80.000</p>
+                </div>
+            </div>
+            <div class="product-card">
+                <div class="product-image">Imagen Charger</div>
+                <div class="product-info">
+                    <h3 class="product-name">Cargador iPhone 20W</h3>
+                    <p class="product-desc">Carga rápida para tu iPhone con cable incluido.</p>
+                    <p class="product-price">$5.000</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Why Choose Us Section -->
+    <section class="why-choose">
+        <h2 class="section-title">¿Por qué elegirnos?</h2>
+        <div class="features-grid">
+            <div class="feature">
+                <i class="fas fa-shield-alt feature-icon"></i>
+                <h3>Productos Originales</h3>
+                <p>Garantizamos autenticidad y calidad en todos nuestros productos.</p>
+            </div>
+            <div class="feature">
+                <i class="fas fa-truck feature-icon"></i>
+                <h3>Entrega Rápida</h3>
+                <p>Envío rápido y seguro a toda la zona de Cipolletti.</p>
+            </div>
+            <div class="feature">
+                <i class="fas fa-store feature-icon"></i>
+                <h3>Tienda Local</h3>
+                <p>Visítanos en nuestro local físico en Cipolletti, Río Negro.</p>
+            </div>
+            <div class="feature">
+                <i class="fas fa-lock feature-icon"></i>
+                <h3>Pago Seguro</h3>
+                <p>Métodos de pago confiables y protegidos.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section class="contact">
+        <div class="contact-content">
+            <h2>Contáctanos</h2>
+            <div class="contact-links">
+                <a href="https://wa.me/5491234567890?text=Hola,%20quiero%20información%20sobre%20productos" target="_blank" class="contact-link">
+                    <i class="fab fa-whatsapp"></i>
+                    <span>WhatsApp</span>
+                </a>
+                <a href="https://instagram.com/store.ar" target="_blank" class="contact-link">
+                    <i class="fab fa-instagram"></i>
+                    <span>Instagram</span>
+                </a>
+                <div class="contact-link">
+                    <i class="fas fa-map-marker-alt"></i>
+                    <span>Cipolletti, Río Negro, Argentina</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="footer-content">
+            <div class="footer-brand">Store.ar</div>
+            <div class="social-links">
+                <a href="https://facebook.com/store.ar" target="_blank" class="social-link"><i class="fab fa-facebook-f"></i></a>
+                <a href="https://instagram.com/store.ar" target="_blank" class="social-link"><i class="fab fa-instagram"></i></a>
+                <a href="https://wa.me/5491234567890" target="_blank" class="social-link"><i class="fab fa-whatsapp"></i></a>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Basic JavaScript for smooth scrolling
+        function scrollToSection(sectionId) {
+            const section = document.getElementById(sectionId);
+            if (section) {
+                section.scrollIntoView({ behavior: 'smooth' });
+            }
+        }
+
+        // Optional: Add any interactive features here, like a modal for products
+        // For now, this is minimal as per requirements.
+    </script>
+</body>
+</html>
